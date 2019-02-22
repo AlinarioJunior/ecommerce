@@ -2,14 +2,22 @@
 
 require_once("config.php");
 
+$aluno = new Usuario("Aluno", "@luno");
+
+$aluno->insert();
+
+echo $aluno;
+
+
 //carrega um usuário usando o login e a senha
 
+/*
 $usuario = new Usuario();
 
 $usuario->login("user","12345");
 
 echo $usuario;
-
+*/
 
 //Carrega uma lista buscando pelo login
 /*
