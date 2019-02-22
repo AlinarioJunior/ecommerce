@@ -1,5 +1,16 @@
 <?php
 
+$usuario = new Usuario();
+
+$usuario->loadById(10);
+
+$usuario->update("Professor", "professor123");
+
+echo $usuario;
+
+//cria usuarios
+
+/*
 require_once("config.php");
 
 $aluno = new Usuario("Aluno", "@luno");
@@ -7,6 +18,7 @@ $aluno = new Usuario("Aluno", "@luno");
 $aluno->insert();
 
 echo $aluno;
+*/
 
 
 //carrega um usuário usando o login e a senha
