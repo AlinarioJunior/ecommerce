@@ -124,23 +124,37 @@ class Usuario {
         }
     }
 
-    public function __construct($usuario = "", $senha = ""){
+    public function __construct($usuario = "", $senha = "") {
         $this->setDeslogin($usuario);
         $this->setDessenha($senha);
     }
 
-    public function update($usuario, $senha){
-        
+    public function update($usuario, $senha) {
+
         $this->setDeslogin($usuario);
         $this->setDessenha($senha);
 
         $sql = new Sql();
 
-        $sql->query("UPDATE tb_usuarios SET deslogin = :USUARIO, dessenha = :SENHA where idusuario = :ID", array(
-            ":USUARIO"=>$this->getDeslogin(),
-            ":SENHA"=>$this->getDessenha(),
-            ":ID"=>$this->getIdusuario(),
+        $sql->query("UPDATE tb_usuarios SET deslogin = :USUARIO, dessenha = :SENHA WHERE idusuario = :ID", array(
+            ":USUARIO" => $this->getDeslogin(),
+            ":SENHA" => $this->getDessenha(),
+            ":ID" => $this->getIdusuario(),
         ));
+    }
+
+    public function delete() {
+
+        $sql = new Sql();
+
+        $sql->query("DELETE FROM tb_usuarios WHERE idusuario = :ID", array(
+            ":ID" => $this->getIdusuario(),
+        ));
+
+        $this->setIdusuario(0);
+        $this->setDeslogin("");
+        $this->setDessenha("");
+        $this->setDtcadastro(new DateTime());
     }
 
     public function __toString() {

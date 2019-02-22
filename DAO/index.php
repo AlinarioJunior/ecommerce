@@ -2,11 +2,26 @@
 
 $usuario = new Usuario();
 
+$usuario->loadById(5);
+
+$usuario->delete();
+
+echo $usuario();
+
+
+
+
+/*
+//Alterar um usuário
+$usuario = new Usuario();
+
 $usuario->loadById(10);
 
 $usuario->update("Professor", "professor123");
 
 echo $usuario;
+
+/*
 
 //cria usuarios
 
