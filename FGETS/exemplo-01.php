@@ -2,33 +2,31 @@
 
 $filename = "usuarios.csv";
 
-if(file_exists($filename)){
+if (file_exists($filename)) {
 
-  $file = fopen($filename, "r");
+    $file = fopen($filename, "r");
 
-  $headers = explode(";",fgets($file));
+    $headers = explode(";", fgets($file));
 
-  $data = array();
+    $data = array();
 
-  while($row = fgets($file)){
+    while ($row = fgets($file)) {
 
-    $rowData = explode(";",$row);
-    $linha = array();
+        $rowData = explode(";", $row);
+        $linha = array();
 
-    for($i = 0; $i < count($headers); $i++){
+        for ($i = 0; $i < count($headers); $i++) {
 
-      $linha[$headers[$i]] = $rowData[$i];
+            $linha[$headers[$i]] = $rowData[$i];
+
+        }
+
+        array_push($data, $linha);
 
     }
 
-    array_push($data, $linha);
+    fclose($file);
 
-  }
-
-  fclose($file);
-
-  echo json_encode($data);
+    echo json_encode($data);
 
 }
-
-?>
