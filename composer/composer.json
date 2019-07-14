@@ -1,0 +1,14 @@
+{
+    "name": "alinario/composer",
+    "description": "Aula de PHP 7",
+    "authors": [
+        {
+            "name": "Alinario Junior",
+            "email": "alinariojunior@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "monolog/monolog":"1.0.*"  
+    }
+}
